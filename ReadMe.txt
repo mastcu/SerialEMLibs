@@ -39,6 +39,12 @@ and Win64 for libcfshr, libiimod and/or libimod, and DLL-Release x64 for the
 noHDF version of libiimod if that needs updating for SerialEMCCD. Copy
 libcfshr-[^I]*.lib, libiimod-[^I]*.lib, and/or libimod-[^I]*.lib to here.
 
+libifft-MKL is built in VS2015 against static MKL libraries in the Intel 2015
+compilers, using the Intel-OMP Win32 and x64 configurations.  These
+configurations rely on the environment variable ICPP_COMPILER15, which is
+defined by the Intel install.  This is used in the C/C++ - General section and
+the Linker - Input section.
+
                         SerialEM with MKL  Intel-free SerialEM  SerialEMCCD
                           32-bit 64-bit       32-bit 64-bit      v90  v140
 hdf5-14.lib                  X                   X 
