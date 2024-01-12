@@ -35,9 +35,10 @@ libcfshr, libiimod, and/or libimod, and copy the libcfshr-I*.lib,
 libiimod-I*.lib, and/or libimod-I*.lib to here.  (These builds require
 environment variables IOMP_LIB32_DIR and IOMP_LIB64_DIR with the paths to
 32-bit and 64-bit libiomp5md.lib, respectively.)  Then build Release Win32
-and Win64 for libcfshr, libiimod and/or libimod, and DLL-Release x64 for the
-noHDF version of libiimod if that needs updating for SerialEMCCD. Copy
-libcfshr-[^I]*.lib, libiimod-[^I]*.lib, and/or libimod-[^I]*.lib to here.
+and Win64 for libcfshr, libiimod and/or libimod, and DLL-Release x64 and
+IOMP-noHDF for the noHDF versions of libiimod if that needs updating for
+SerialEMCCD. Copy libcfshr-[^I]*.lib, libiimod-[^I]*.lib, and/or
+libimod-[^I]*.lib to here.
 
 libifft-MKL is built in VS2015 against static MKL libraries in the Intel 2015
 compilers, using the Intel-OMP Win32 and x64 configurations.  These
@@ -54,7 +55,7 @@ libcfshr-64.lib                                                   X
 libcfshr-14.lib                                  X
 libcfshr-14-64.lib                                     X                X
 libcfshr-IOMP.lib            X
-libcfshr-IOMP-64.lib               X
+libcfshr-IOMP-64.lib               X                                    X
 
 libctffind.lib               X
 libctffind-VCOMP.dll                             X
@@ -73,6 +74,7 @@ libiimod-64.lib                                                   X
 libiimod-14.lib                                  X
 libiimod-14-64.lib                                     X         
 libiimod-noHDF-14-64.lib                                                X
+libiimod-IOMP-noHDF-64.lib                                              X
 libiimod-IOMP.lib            X
 libiimod-IOMP-64.lib               X
 
