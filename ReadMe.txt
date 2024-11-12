@@ -5,23 +5,22 @@ See the Copyright.txt in SerialEM and ReadMe.txt in SerialEMCCD for
 descriptions of various license terms.
 
 See the file libimod/README-VIS.STUDIO.txt in the IMOD source package for
-descriptions of how the IMOD libraries here are built in Visual Studio.  See
-the file ReadMe.txt in the SerialEM source for instructions on modifying the
-configurations there to use some of the alternative libraries here.
+descriptions of how the IMOD libraries here are built in Visual Studio and
+required environment variable settings.  See the file ReadMe.txt in the
+SerialEM source for instructions on modifying the configurations there to use
+some of the alternative libraries here.
 
 The libctffind files here are a bit different from other variations:
 libctffind.lib is from a regular build of IMOD with Intel compilers.
-Specifically, they are built with the 2015 Intel C++ compiler used with the
-VS2013 toolset, in order to maintain compatibility with Windows XP.   A
-SerialEM built with this will depend on the libctffind.dll built in IMOD
-and Intel libraries libiomp5md.dll and libmmd.dll, all distributed with
-SerialEM.  A 32-build will also depend on msvrc120.dll and msvc120.dll.
-The libctffind-VCOMP.dll and libctffind-VCOMP.lib are built with
-Visual Studio against vcomp.lib instead of libiomp5md.lib; SerialEM built with
-libctffind-VCOMP.lib will depend only on the libctffind-VCOMP.dll included
-here.
+Specifically, they are built with the 2019 Intel C++ compiler used with the
+VS2015 toolset.  A SerialEM built with this will depend on the libctffind.dll
+built in IMOD and Intel libraries libiomp5md.dll and libmmd.dll, all
+distributed with SerialEM.  The libctffind-VCOMP.dll and libctffind-VCOMP.lib
+are built with Visual Studio against vcomp.lib instead of libiomp5md.lib;
+SerialEM built with libctffind-VCOMP.lib will depend only on the
+libctffind-VCOMP.dll included here.
 
-Here is a table of what libraries are used in what builds.  v90 and v140 refer
+Below is a table of what libraries are used in what builds.  v90 and v140 refer
 to the toolsets installed by VS2008 and VS2015, respectively.  Higher versions
 of Visual Studio offer a selection of toolsets if earlier versions are
 installed.
@@ -40,11 +39,17 @@ IOMP-noHDF for the noHDF versions of libiimod if that needs updating for
 SerialEMCCD. Copy libcfshr-[^I]*.lib, libiimod-[^I]*.lib, and/or
 libimod-[^I]*.lib to here.
 
-libifft-MKL is built in VS2015 against static MKL libraries in the Intel 2015
+Currently, to retain the ability to run on Windows XP, the 32-bit 
+libiomp5md.lib and dll from the Intel 2015 compilers is used.  This seems to
+work, but to avoid problems, libraries from Intel 2019 are used for the 64-bit
+builds.
+
+libifft-MKL is built in VS2015 against static MKL libraries in the Intel 2019
 compilers, using the Intel-OMP Win32 and x64 configurations.  These
-configurations rely on the environment variable ICPP_COMPILER15, which is
+configurations rely on the environment variable ICPP_COMPILER19, which is
 defined by the Intel install.  This is used in the C/C++ - General section and
-the Linker - Input section.
+the Linker - Input section.  The 32-bit configuration relies on IOMP_LIB32_DIR
+so that the older libiomp5md.lib can be used.
 
                         SerialEM with MKL  Intel-free SerialEM  SerialEMCCD
                           32-bit 64-bit       32-bit 64-bit      v90  v140
