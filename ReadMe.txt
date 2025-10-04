@@ -92,6 +92,9 @@ libimxml-64.lib                                                   X
 libimxml-14.lib              X                   X
 libimxml-14-64.lib                 X                   X                X
 
+libiwarp.lib                 X                   X
+libiwarp-64.lib                    X                   X
+
 libiomp5md.lib               X
 x64/libiomp5md.lib                 X
 
