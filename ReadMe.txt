@@ -25,6 +25,11 @@ to the toolsets installed by VS2008 and VS2015, respectively.  Higher versions
 of Visual Studio offer a selection of toolsets if earlier versions are
 installed.
 
+Building libiimod requires environment variables SEMVS_TIFF_DIR,
+SEMVS_JPEG_DIR, and SEMVS_HDF5_DIR to be defined with paths to the build
+directories for libtiff and libjpeg and an install directory for HDF5,
+respectively.
+
 The current building procedure when a library needs updating in either
 SerialEM or SerialEMCCD is as follows.  If libcfshr or libiimod needs updating
 in SerialEMCCD, open libimod/libimod.sln in VS2008, build Release x64 for
